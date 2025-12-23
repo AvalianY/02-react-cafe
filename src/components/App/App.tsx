@@ -16,7 +16,6 @@ const initialVotes: Votes = {
 export default function App() {
 
   const [votes, setVotes] = useState<Votes>(initialVotes);
-  const total = votes.good + votes.neutral + votes.bad;
 
   const handleVote = (type: VoteType) => {
     setVotes(prevVotes => ({
@@ -29,10 +28,12 @@ export default function App() {
     setVotes(initialVotes);
   };
 
+  const canReset = votes.good > 0 || votes.neutral > 0 || votes.bad > 0 ? true : false;
+
   return (
     <div className={css.app}>
       <CafeInfo />
-      <VoteOptions onVote={handleVote} onReset={resetVotes} total={total} />
+      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={canReset} />
       <VoteStats votes={votes} />
     </div>
   );
