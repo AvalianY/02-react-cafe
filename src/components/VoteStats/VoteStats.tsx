@@ -1,6 +1,6 @@
-import type { Votes } from './types/votes';
-import cssVS from './css/VoteStats.module.css';
-import cssN from './css/Notification.module.css';
+import type { Votes } from '../../types/votes';
+import cssVS from './VoteStats.module.css';
+import cssN from './Notification.module.css';
 
 interface VoteStatsProps {
   votes: Votes;
